@@ -1,0 +1,38 @@
+<div data-role="page" data-url="<%= Rho::RhoConfig.start_path %>/">
+
+  <div data-role="header" data-position="inline">
+    <h1>TsWebsocketCl</h1>
+  </div>
+
+  <input id="comment" type="text">
+  <input id="send" type="button" value="send">
+
+  <ul id="chat">
+  </ul>
+  <div data-role="content">
+    <ul data-role="listview">
+      <!--    <li><a href="#">Add link here...</a></li>  -->
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  var ws_rails = new WebSocketRails("192.168.0.129:3000/websocket");
+
+  ws_rails.bind("websocket_chat", function(message){
+    console.log(message);
+    var message_li = document.createElement('li');
+    message_li.textContent = message;
+    $('ul#chat').prepend(message_li);
+  });
+
+  $('#send').click(function(){
+    var comment = $('#comment').val();
+    console.log(comment);
+    ws_rails.trigger('websocket_chat', comment);
+    $('input#comment').val('');
+  });
+</script>
+
+

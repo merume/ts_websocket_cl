@@ -1,0 +1,24 @@
+#sdk: "C:/ruby/ruby-1.9.3/lib/ruby/gems/1.9.1/gems/rhodes-3.5.1.12"
+sdkversion: 3.5.0
+name: ts_websocket_cl
+version: 1.0
+vendor: rhomobile
+build: debug
+bbver: 4.6
+applog: rholog.txt
+iphone:
+  configuration: Release
+  sdk: iphonesimulator5.0
+  provisionprofile:
+  codesignidentity:
+  entitlements:
+  BundleIdentifier: com.rhomobile.tswebsocketcl
+  BundleURLScheme: tswebsocketcl
+wp:
+  productid: '0ffe8bb0-1632-0133-2a1c-689d87d34a21'
+symbian:
+  uid: '0xe5a119f9'
+android:
+  version: 4.0
+
+extensions: ["json", "another-extension"]
